@@ -1,1 +1,108 @@
-/* You can add global styles to this file, and also import other style files */
+/* Barra de pesquisa */
+div input[type="text"] {
+  width: 100%;
+  max-width: 600px;  /* Máxima largura para não ficar muito grande */
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  display: block;
+  margin: 0 auto; /* Centraliza o campo de busca */
+}
+
+div input[type="text"]:focus {
+  border-color: #007BFF; /* Cor ao focar na barra */
+  outline: none;
+}
+
+div.loading {
+  font-size: 16px;
+  text-align: center;
+  color: #007BFF;
+}
+
+div.error-message {
+  color: red;
+  font-size: 16px;
+  text-align: center;
+}
+
+/* Filmes - Lista de filmes */
+.movie-item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 20px 0;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.movie-item img.movie-poster {
+  width: 150px; /* Tamanho fixo para o poster */
+  height: auto;
+  margin-right: 20px;
+  border-radius: 8px;
+}
+
+.movie-info {
+  flex: 1; /* Garante que a descrição ocupe o espaço restante */
+  min-width: 250px; /* Largura mínima para garantir boa legibilidade */
+}
+
+.movie-info h3 {
+  font-size: 20px;
+  margin: 0;
+  padding-bottom: 10px;
+}
+
+.movie-info p {
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+button {
+  padding: 8px 15px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Ajustes para dispositivos móveis */
+@media (max-width: 768px) {
+  .movie-item {
+    flex-direction: column; /* Organiza os filmes verticalmente em telas pequenas */
+    align-items: center;
+  }
+
+  .movie-item img.movie-poster {
+    width: 100%;
+    max-width: 200px; /* Garante que a imagem não ultrapasse os limites */
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .movie-info {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .movie-item {
+    padding: 10px;
+  }
+
+  div input[type="text"] {
+    width: 90%;
+    padding: 8px;
+  }
+}

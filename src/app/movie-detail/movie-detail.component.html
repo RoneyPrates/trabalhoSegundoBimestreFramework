@@ -1,0 +1,11 @@
+<div *ngIf="loading">Carregando...</div>
+<div *ngIf="movie">
+  <h2>{{ movie.Title }} ({{ movie.Year }})</h2>
+  <img [src]="movie.Poster" alt="{{ movie.Title }}" class="movie-poster"/>
+  <p><strong>Classificação:</strong> {{ movie.Rated }}</p>
+  <p><strong>Atores:</strong> {{ movie.Actors }}</p>
+  <p><strong>Diretores:</strong> {{ movie.Director }}</p>
+  <p><strong>Tempo:</strong> {{ movie.Runtime }}</p>
+  <p><strong>Sinopse:</strong> {{ movie.Plot }}</p>
+  <p><strong>Prêmios:</strong> {{ movie.Awards }}</p>
+</div>

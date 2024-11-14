@@ -1,0 +1,32 @@
+<div>
+  <input
+    type="text"
+    [(ngModel)]="query"
+    (input)="onSearch()"
+    placeholder="Digite as três primeiras letras de um filme..."
+    [ngClass]="{ 'loading': loading }"
+  />
+  <div *ngIf="loading">Carregando...</div>
+  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+</div>
+
+<div *ngIf="movies.length > 0">
+  <ul>
+    <li *ngFor="let movie of movies">
+      <div class="movie-item">
+        <img [src]="movie.Poster" alt="{{ movie.Title }}" class="movie-poster" />
+        <div class="movie-info">
+          <h3>{{ movie.Title }} ({{ movie.Year }})</h3>
+          <p><strong>Classificação:</strong> {{ movie.Rated || 'Não disponível' }}</p>
+          <p><strong>Atores:</strong> {{ movie.Actors || 'Não disponível' }}</p>
+          <p><strong>Tempo:</strong> {{ movie.Runtime || 'Não disponível' }}</p>
+          <p><strong>Sinopse:</strong> {{ movie.Plot || 'Sinopse não disponível' }}</p>
+          <p><strong>Prêmios:</strong> {{ movie.Awards || 'Sem prêmios' }}</p>
+          <button (click)="toggleFavorite(movie)">
+            {{ getFavoriteButtonLabel(movie) }}
+          </button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
